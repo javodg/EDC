@@ -1,8 +1,1 @@
-*.DS_Store
-bower_components/
-dist/
-docs/
-node_modules/
-*.sublime-project
-EDC.sublime-workspace
-.tmp/
+node_modules
