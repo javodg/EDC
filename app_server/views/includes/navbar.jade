@@ -29,7 +29,7 @@ nav.navbar.navbar-default.navbar-static-top(role='navigation', style='margin-bot
 					div woooow
 				li.divider
 				li: a.text-center(href='#')
-					strong Read All Messages
+					strong Leer todos los mensajes
 					i.fa.fa-angle-right
 		// /.dropdown-messages
 		// .dropdown-alerts
@@ -70,44 +70,43 @@ nav.navbar.navbar-default.navbar-static-top(role='navigation', style='margin-bot
 			ul.dropdown-menu.dropdown-user
 				li: a(href='#')
 					i.fa.fa-user.fa-fw 
-					span User Profile
+					span Perfil 
 				li: a(href='#')
 					i.fa.fa-gear.fa-fw 
-					span Settings
+					span Opciones
 				li.divider
 				li: a(href='login.html')
 					i.fa.fa-sign-out.fa-fw 
-					span Logout
+					span Salir
 		// /.dropdown-user
 		// /.dropdown
 	// /.navbar-top-links
 	.navbar-default.sidebar(role='navigation')
 		.sidebar-nav.navbar-collapse
 			ul#side-menu.nav
-				li.sidebar-search: .input-group.custom-search-form
-						input.form-control(type='text', placeholder='Search...')
-						span.input-group-btn: button.btn.btn-default(type='button'): i.fa.fa-search
 				li: a(href='/')
 					i.fa.fa-dashboard.fa-fw
 					span Inicio
-				li: a(href='#')
-					i.fa.fa-users.fa-fw 
-					span Clientes
-					span.fa.arrow
+				li
+					a(href='#')
+						i.fa.fa-users.fa-fw 
+						span Clientes
+						span.fa.arrow
 					ul.nav.nav-second-level
-						li: a(href='clientes.html')
-							i.fa.fa-user.fa-fw
-							span Buscar Cliente
-						li: a(href='clientes.html') 
-							i.fa.fa-users.fa-fw
-							span Lista de Clientes
-						li: a(href='cliente_n.html')
+						li: .input-group.custom-search-form
+							input.form-control(type='text', placeholder='Buscar Cliente')
+							span.input-group-btn: button.btn.btn-default(type='button'): i.fa.fa-search
+						li: a(href='/clientes/nuevo')
 							i.fa.fa-user-plus.fa-fw
 							span Nuevo Cliente
-				li: a(href='#')
-					i.fa.fa-users.fa-fw 
-					span Ordenes de servicio
-					span.fa.arrow
+						li: a(href='/clientes/lista') 
+							i.fa.fa-users.fa-fw
+							span Lista de Clientes
+				li 
+					a(href='#')
+						i.fa.fa-users.fa-fw 
+						span Ordenes de servicio
+						span.fa.arrow
 					ul.nav.nav-second-level
 						li: a(href='orden_n.html')
 							i.fa.fa-user.fa-fw
