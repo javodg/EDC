@@ -8,20 +8,19 @@ block contenido
     .col-xs-12.col-md-9
       .row
         .col-xs-12.col-sm-6
-          p.rating
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star
-          p Violetas Mz 170 Lt 36 b. Ojo de Agua, Tecamac
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Datos generales
+            .panel-body
+              p Direccion: Violetas Mz 170 Lt 36 b. Ojo de Agua, Tecamac
+              p Contactos: Roberdo Diaz Gaitan (Director) 59384426/roberdg56@gmail.com
           .panel.panel-primary
             .panel-heading
               h2.panel-title Horarios
             .panel-body
               p Lunes - Viernes : 7:00am - 3:00pm
               p Sabado : 8:00am - 1:00pm
-              p Domingo : closed
+              p Domingo : cerrado
           .panel.panel-primary
             .panel-heading
               h2.panel-title Giros
@@ -45,5 +44,8 @@ block contenido
             .panel-body
               img.img-responsive.img-rounded(src='http://maps.googleapis.com/maps/api/staticmap?center=19.6853224,-99.037741&zoom=17&size=400x350&sensor=false&markers=19.6853224,--99.037741&scale=2')
     .col-xs-12.col-md-3
-      p.lead
-        | Aqui va informacion de ordenes
+      .panel.panel-primary
+        .panel-heading
+          h2.panel-title Ordenes de ventas
+        .panel-body
+          p Aqui va informacion de ordenes de ventas.
