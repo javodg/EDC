@@ -1,9 +1,4 @@
-doctype html
-html(lang="es")
-	include ./includes/head.jade
-	body
-	#wrapper 
-		include ./includes/modal.jade
-		include ./includes/navbar.jade
-		include ./includes/index.jade
-	include ./includes/scriptsfinales.jade
+extends layout
+
+block contenido
+	div.page-header: h3 Administracion de Enemedios

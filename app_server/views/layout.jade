@@ -1,14 +1,9 @@
 doctype html
 html(lang="es")
- include ./includes/head.jade
- body
-  block topnav
-  block content
-      // jQuery
-  script(src='/vendor/jquery/dist/jquery.min.js')
-  // Bootstrap Core JavaScript
-  script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
-  // Metis Menu Plugin JavaScript
-  script(src='/vendor/metisMenu/dist/metisMenu.min.js')
-  // Custom Theme JavaScript
-  script(src='/javascripts/sb-admin-2.js')
+	include ./includes/head.jade
+	body: #wrapper 
+		include ./includes/modal.jade
+		include ./includes/navbar.jade
+		#page-wrapper.container-fluid 
+			block contenido
+	include ./includes/scriptsfinales.jade

@@ -1,0 +1,49 @@
+extends layout
+
+block contenido
+  .row.page-header
+    .col-lg-12
+      h1 Enemedios
+  .row
+    .col-xs-12.col-md-9
+      .row
+        .col-xs-12.col-sm-6
+          p.rating
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+          p Violetas Mz 170 Lt 36 b. Ojo de Agua, Tecamac
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Horarios
+            .panel-body
+              p Lunes - Viernes : 7:00am - 3:00pm
+              p Sabado : 8:00am - 1:00pm
+              p Domingo : closed
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Giros
+            .panel-body
+              span.label.label-warning
+                span.glyphicon.glyphicon-ok
+                | &nbsp;Publicidad
+              | &nbsp;
+              span.label.label-warning
+                span.glyphicon.glyphicon-ok
+                | &nbsp;Mercadeo
+              | &nbsp;
+              span.label.label-warning
+                span.glyphicon.glyphicon-ok
+                | &nbsp;Algo mas
+              | &nbsp;
+        .col-xs-12.col-sm-6.location-map
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Mapa
+            .panel-body
+              img.img-responsive.img-rounded(src='http://maps.googleapis.com/maps/api/staticmap?center=19.6853224,-99.037741&zoom=17&size=400x350&sensor=false&markers=19.6853224,--99.037741&scale=2')
+    .col-xs-12.col-md-3
+      p.lead
+        | Aqui va informacion de ordenes

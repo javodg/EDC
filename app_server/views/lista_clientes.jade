@@ -1,8 +1,29 @@
-doctype html
-html(lang="es")
-	include ./includes/head.jade
-	body: #wrapper 
-		include ./includes/modal.jade
-		include ./includes/navbar.jade
-		#page-wrapper Lista de clientes
-	include ./includes/scriptsfinales.jade
+extends layout
+
+block contenido
+	div.page-header 
+		.row
+			.col-lg-6: h3 Lista de Clientes
+	.row
+		.col-md-12.col-lg-8: .panel.panel-primary
+			.panel-body
+				p Lista de negocios con index y busqueda
+				p Ficha del negocio 
+		.col-md-12.col-lg-4: .panel.panel-primary.panel
+			.panel-heading: h4 Enemedios
+			.panel-body
+				p.direccion Violetas mz 170 lt 36, Ojo de agua.
+				p.direccion Tecamac, Estado de Mexico, CP 55770
+				table.table.table-hover
+					tr
+						th Mes
+						th Tamaño
+						th Debe
+					tr
+						td Febrero 2016
+						td 1/2
+						td Pagado
+					tr
+						td Marzo 2016
+						td 1/2
+						td $500

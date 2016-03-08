@@ -12,4 +12,5 @@ router.get('/clientes', ctrlclientes.clientes);
 router.get('/clientes/lista', ctrlclientes.lista);
 router.get('/clientes/nuevo', ctrlclientes.nuevo);
 router.get('/clientes/cliente', ctrlclientes.cliente);
+router.get('/clientes/cliente2', ctrlclientes.cliente2);
 module.exports = router;

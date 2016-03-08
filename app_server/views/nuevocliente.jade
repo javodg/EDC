@@ -1,70 +1,59 @@
-doctype html
-html(lang="es")
-	include ./includes/head.jade
-	body: #wrapper 
-		include ./includes/modal.jade
-		include ./includes/navbar.jade
-		#page-wrapper.container-fluid 
-			div.page-header: h2 Nuevo Cliente
-			form.form-horizontal
-				.row
-					.col-md-6: div.panel.panel-primary
-						div.panel-heading: h4 Datos Generales de la Empresa
-						div.panel-body
-							mixin form-group(nombre,id,tipo,leyenda)
-								div.form-group
-									label.control-label.col-sm-2(for=nombre)= nombre
-									.col-sm-10: input.form-control(id=id, type=tipo, placeholder=leyenda)
-							+form-group('Empresa','empresa','text','Nombre de la Empresa')
-							+form-group('Razon social','cliente','text','Razon social del cliente')
-							div.form-group
-								label.control-label.col-sm-2(for='giro') Categoria 
-								.col-sm-10: select.form-control#giro
-									option El menú
-									option Abarrotes
-									option Eventos Especiales
-									option Regalos y Flores
-									option Ropa y Accesorios
-									option Bebés y Niños
-									option Educación
-									option Papelerías
-									option Especialistas y Profesionales
-									option Turismo y Esparcimiento
-									option Computación y Telecomunicaciones
-									option Mascotas y Animales
-									option Salud
-									option Belleza
-									option Deportes
-									option Construcción y Mantenimiento
-									option Vehículos
-							div.form-group
-								label.control-label.col-sm-2(for='telefono') Telefono 
-								.col-sm-10: input.form-control#telefono(type='text', placeholder='Telefono de la empresa')
-							div.form-group
-								label.control-label.col-sm-2(for='web') Sitio Web 
-								.col-sm-10: input.form-control#web(type='text', placeholder='Direccion del sitio web de la empresa')								
-					.col-md-6: div.panel.panel-primary
-						div.panel-heading: h4 Direccion
-						div.panel-body
-							div.form-group
-								label.control-label.col-sm-2(for='calle') Calle 
-								.col-sm-10: input.form-control#calle(type='text', placeholder='Calle')
-							div.form-group
-								label.control-label.col-sm-2(for='numeroexterior') Numero exterior
-								.col-sm-10: input.form-control#numeroexterior(type='text', placeholder='Numero (manzana y lote')
-							div.form-group
-								label.control-label.col-sm-2(for='numerointerior') Numero interior
-								.col-sm-10: input.form-control#numerointerior(type='text', placeholder='Numero (Edificio y departamento)')
-							div.form-group
-								label.control-label.col-sm-2(for='colonia') Colonia
-								.col-sm-10: input.form-control#colonia(type='text', placeholder='Colonia')
-							div.form-group
-								label.control-label.col-sm-2(for='municipio') Municipio
-								.col-sm-10: input.form-control#municipio(type='text', placeholder='Municipio o delegacion')
-							div.form-group
-								label.control-label.col-sm-2(for='ciudad') Ciudad 
-								.col-sm-10: input.form-control#ciudad(type='text', placeholder='Ciudad')
-							div.form-group
-								label.control-label.col-sm-2(for='estado') Estado 
-								.col-sm-10: input.form-control#estado(type='text', placeholder='Estado')
-	include ./includes/scriptsfinales.jade
+extends layout
+
+block contenido
+	div.page-header: h3 Nuevo Cliente
+	form.form-horizontal
+		.row
+			.col-md-6: .panel.panel-primary
+				.panel-heading: h4 Datos Generales de la Empresa
+				.panel-body
+					mixin form-group(nombre,id,tipo,leyenda)
+						div.form-group
+							label.control-label.col-sm-2(for=nombre)= nombre
+							.col-sm-10: input.form-control(id=id, type=tipo, placeholder=leyenda)
+					+form-group('Empresa','empresa','text','Nombre de la Empresa')
+					+form-group('Razon social','cliente','text','Razon social del cliente')
+					div.form-group
+						label.control-label.col-sm-2(for='giro') Categoria 
+						.col-sm-10: select.form-control#giro
+							option El menú
+							option Abarrotes
+							option Eventos Especiales
+							option Regalos y Flores
+							option Ropa y Accesorios
+							option Bebés y Niños
+							option Educación
+							option Papelerías
+							option Especialistas y Profesionales
+							option Turismo y Esparcimiento
+							option Computación y Telecomunicaciones
+							option Mascotas y Animales
+							option Salud
+							option Belleza
+							option Deportes
+							option Construcción y Mantenimiento
+							option Vehículos
+					+form-group('Telefono','telefono','text','Telefono de la empresa')
+					+form-group('Web','web','text','Direccion del sitio web de la empresa')
+			.col-md-6: div.panel.panel-primary
+				div.panel-heading: h4 Contactos
+				div.panel-body 
+					h5 Primero contacto
+					+form-group('Nombre','nombre_c1','text','Nombre del contacto')
+					+form-group('Posicion','posicion_c1','text','Posicion dentro de la empresa')
+					+form-group('Telefono','telefono_c1','text','Telefono del contacto')
+					+form-group('Correo','correo_c1','text','Corrego web del contacto')
+		.row
+			.col-md-6: div.panel.panel-primary
+				div.panel-heading: h4 Direccion
+				div.panel-body
+					+form-group('Calle','calle','text','Calle de la empresa')
+					+form-group('Numero exterior','num_exterior','text','Numero exterior (manzana y lote)')
+					+form-group('Numero interior','num_interior','text','Numero interior (edificio y departamento)')
+					+form-group('Colonia','colonia','text','Colonia')
+					+form-group('Municipio','municipio','text','Municipio')
+					+form-group('Ciudad','ciudad','text','Ciudad')
+					+form-group('Estado','estado','text','Estado')
+			.col-md-6: div.panel.panel-primary
+				div.panel-heading: h4 Localizacion
+				.panel-body: img.img-responsive.img-rounded(src='http://maps.googleapis.com/maps/api/staticmap?center=51.455041,-0.9690884&zoom=17&size=400x350&sensor=false&markers=51.455041,-0.9690884&scale=2')
