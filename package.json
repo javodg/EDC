@@ -1,10 +1,11 @@
 {
   "name": "EDC-admin",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Sistema administrativo de EDC",
   "main": "main.js",
   "private": true,
   "scripts": {
+    "test": "nodemon ./bin/www",
     "start": "node ./bin/www"
   },
   "engines": {
@@ -18,10 +19,9 @@
   "author": "Diaz Gaitan Javier",
   "license": "MIT",
   "homepage": "pendiente",
-  "devDependencies": {
-    "electron-prebuilt": "^0.36.0"
-  },
+  "devDependencies": {},
   "dependencies": {
+    "angular-ui-grid": "^3.1.1",
     "body-parser": "~1.13.2",
     "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
