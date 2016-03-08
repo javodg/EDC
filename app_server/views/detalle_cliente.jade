@@ -3,7 +3,7 @@ extends layout
 block contenido
   .row.page-header
     .col-lg-12
-      h1 Enemedios
+      h1= cliente.nombre
   .row
     .col-xs-12.col-md-9
       .row
@@ -12,8 +12,13 @@ block contenido
             .panel-heading
               h2.panel-title Datos generales
             .panel-body
-              p Direccion: Violetas Mz 170 Lt 36 b. Ojo de Agua, Tecamac
-              p Contactos: Roberdo Diaz Gaitan (Director) 59384426/roberdg56@gmail.com
+              p Direccion: #{cliente.dir}
+              p Contactos: 
+              ul.list-group
+                each c in cliente.contactos
+                  li.list-group-item 
+                   p #{c.nombre} (#{c.pos}) 
+                   p #{c.tel}/#{c.mail}
           .panel.panel-primary
             .panel-heading
               h2.panel-title Horarios

@@ -6,15 +6,29 @@ block contenido
 			.col-lg-6: h3 Lista de Clientes
 	.row
 		.col-md-12.col-lg-8: .panel.panel-primary
+			.panel-heading: h4.panel-title Lista de clientes
 			.panel-body
-				p Lista de negocios con index y busqueda
-				p Ficha del negocio 
+				table.table.table-condensed.table-hover
+					thead: tr
+						th ID
+						th Nombre
+						th Cambios
+						th Contacto
+						th Status
+					tbody
+						each c in clientes
+							tr
+								td= c.id
+								td= c.nombre
+								td Sin cambios
+								td Roberto Diaz Gaitan
+								td Pendiente visitar
 		.col-md-12.col-lg-4: .panel.panel-primary.panel
-			.panel-heading: h4 Enemedios
+			.panel-heading: h4.panel-title Enemedios
 			.panel-body
 				p.direccion Violetas mz 170 lt 36, Ojo de agua.
 				p.direccion Tecamac, Estado de Mexico, CP 55770
-				table.table.table-hover
+				table.table.table-condensed.table-hover
 					tr
 						th Mes
 						th Tamaño
