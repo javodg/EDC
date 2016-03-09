@@ -2,10 +2,10 @@
 var mongoose = require('mongoose');
 
 // iniciar la db
-var dbURIclientes = 'mongodb://localhost/clientes';
-if (process.env.NODE_ENV === 'production') {
-dbURIclientes = 'mongodb://@ds023118.mlab.com:23118/enemedios';
-}
+//var dbURIclientes = 'mongodb://localhost/clientes';
+//if (process.env.NODE_ENV === 'production') {
+var dbURIclientes = 'mongodb://javodg@gmail.com:asereje1@ds023118.mlab.com:23118/enemedios';
+//}
 
 //var dbURIclientes = 'mongodb://localhost/clientes';
 var clientesdb = mongoose.createConnection(dbURIclientes);

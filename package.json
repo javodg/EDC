@@ -2,7 +2,6 @@
   "name": "EDC-admin",
   "version": "0.0.3",
   "description": "Sistema administrativo de EDC",
-  "main": "main.js",
   "private": true,
   "scripts": {
     "test": "nodemon ./bin/www",
