@@ -3,6 +3,11 @@ var mongoose = require('mongoose');
 
 // iniciar la db
 var dbURIclientes = 'mongodb://localhost/clientes';
+if (process.env.NODE_ENV === 'production') {
+dbURIclientes = 'mongodb://javodg@gmail.com:asereje1@ds023118.mlab.com:23118/enemedios';
+}
+
+//var dbURIclientes = 'mongodb://localhost/clientes';
 var clientesdb = mongoose.createConnection(dbURIclientes);
 
 // eventos de consola
@@ -42,17 +47,41 @@ process.on('SIGTERM', function() {
 	});
 });
 
-// Shema
+// Schema horarios
+var horariosSchema = new mongoose.Schema({
+	dias: [Number],
+	abre: Number,
+	cierra: Number,
+	cerrado: Boolean
+});
+// Schema contacto
+var contactoSchema = new mongoose.Schema({
+	nombre: {type: String, required: true},
+	pos: String,
+	mail: String,
+	tel: Number,
+	decide: Boolean	
+})
+// Schema cliente
 var clientesSchema = new mongoose.Schema({ 
 	nombre: {type: String, required: true},
-	giro: String,
-	dir: String,
-	coords: {type: [Number], index: '2dsphere'},
+	cliente: {type: String, required:true},
+	categoria: String,
+	productos: [String],
 	tel: Number,
-	contactos:[
-		{	nombre: {type: String, required: true},
-			pos: String,
-			mail: String,
-			tel: Number}
-	]
+	web: String,
+	dir: {
+		calle: String,
+		n_exterior: String,
+		n_interior: String,
+		colonia: String,
+		municipio: String,
+		ciudad: String,
+		estado: String
+	},
+	horarios : [horariosSchema],
+	coords: {type: [Number], index: '2dsphere'},
+	contactos:[contactoSchema]
 });
+// init del modelo de cliente
+//mongoose.model('Cliente','clientesSchema')
