@@ -1,7 +1,7 @@
 // agregar mongoose
 var PouchDB = require('pouchdb');
 
-// Database
+/* Database
 var db_offline = new PouchDB('clientes');
 console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
