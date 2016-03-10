@@ -1,88 +1,66 @@
 // agregar mongoose
-var mongoose = require('mongoose');
+var PouchDB = require('pouchdb');
 
-// iniciar la db
-var dbURIclientes = 'mongodb://localhost/clientes';
+// Database
+var db_offline = new PouchDB('clientes');
 console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
-var dbURIclientes = process.env.MONGOLAB_URI;
+  var db_online = new PouchDB(process.env.DB_URI);
 }
 
-//var dbURIclientes = 'mongodb://localhost/clientes';
-var clientesdb = mongoose.createConnection(dbURIclientes);
-
-// eventos de consola
-clientesdb.on('connected', function () {
-	console.log('Mongoose connected to ' + dbURIclientes);
-});
-clientesdb.on('error',function (err) {
-	console.log('Mongoose connection error: ' + err);
-});
-clientesdb.on('disconnected', function () {
-	console.log('Mongoose disconnected');
-});
-
-// eventos de terminacion
-var gracefulShutdown = function (msg, callback) {
-	clientesdb.close(function () {
-		console.log('Mongoose disconnected through ' + msg);
-		callback();
-	});
+var doc = {
+  "_id": "desw",
+  "name": "Mittens",
+  "occupation": "kitten",
+  "age": 3,
+  "hobbies": [
+    "playing with balls of yarn",
+    "chasing laser pointers",
+    "lookin' hella cute"
+  ]
 };
-// For nodemon restarts
-process.once('SIGUSR2', function () {
-	gracefulShutdown('nodemon restart', function () {
-		process.kill(process.pid, 'SIGUSR2');
-	});
-});
-// For app termination
-process.on('SIGINT', function() {
-	gracefulShutdown('app termination', function () {
-		process.exit(0);
-	});
-});
-// For Heroku app termination
-process.on('SIGTERM', function() {
-	gracefulShutdown('Heroku app shutdown', function () {
-		process.exit(0);
-	});
+db_offline.put(doc);
+db_offline.info().then(function (info) {
+  console.log(info);
+})
+db_offline.get('algomas').then(function (doc) {
+  console.log(doc);
 });
 
-// Schema horarios
-var horariosSchema = new mongoose.Schema({
-	dias: [Number],
-	abre: Number,
-	cierra: Number,
-	cerrado: Boolean
+// ejemplos de CRUD
+// agregar registro
+/*var cliente = {
+	'_id': 'enemedios',
+	'nombre': 'Enemedios',
+	'dir': 'Violetas Mz 170 Lt 36 b. Ojo de Agua, Tecamac',
+	'tel': 59384426,
+	'contactos':[
+		{	'nombre':'Roberto Diaz Gaitan',
+			'pos':'Director',
+			'mail':'roberdg56@gmail.com',
+			'tel': 59384426},
+		{	'nombre':'Javier Diaz Gaitan',
+			'pos':'Programador',
+			'mail':'javodg@gmail.com',
+			'tel': 5538922314
+		}
+	]
+}
+dbclientes.put(cliente);
+
+/*db.get('enemedios').then(function (doc) {
+  console.log(doc);
 });
-// Schema contacto
-var contactoSchema = new mongoose.Schema({
-	nombre: {type: String, required: true},
-	pos: String,
-	mail: String,
-	tel: Number,
-	decide: Boolean	
-})
-// Schema cliente
-var clientesSchema = new mongoose.Schema({ 
-	nombre: {type: String, required: true},
-	cliente: {type: String, required:true},
-	categoria: String,
-	productos: [String],
-	tel: Number,
-	web: String,
-	dir: {
-		calle: String,
-		n_exterior: String,
-		n_interior: String,
-		colonia: String,
-		municipio: String,
-		ciudad: String,
-		estado: String
-	},
-	horarios : [horariosSchema],
-	coords: {type: [Number], index: '2dsphere'},
-	contactos:[contactoSchema]
-});
-// init del modelo de cliente
-//mongoose.model('Cliente','clientesSchema')
+
+// modificar registro
+db.get('enemedios').then(function (doc) {
+  // update their age
+  doc.tel = 111111;
+  // put them back
+  return db.put(doc);
+}).then(function () {
+  // fetch mittens again
+  return db.get('enemedios');
+}).then(function (doc) {
+  console.log(doc);
+});*/

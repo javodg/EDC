@@ -28,6 +28,7 @@
     "jade": "~1.11.0",
     "mongoose": "^4.4.6",
     "morgan": "~1.6.1",
+    "pouchdb": "^5.3.0",
     "serve-favicon": "~2.3.0"
   }
 }
