@@ -1,31 +1,33 @@
 // agregar mongoose
 var PouchDB = require('pouchdb');
 
-/* Database
-var db_offline = new PouchDB('clientes');
-console.log(process.env.NODE_ENV);
-if (process.env.NODE_ENV === 'production') {
-  var db_online = new PouchDB(process.env.DB_URI);
-}
 
-var doc = {
-  "_id": "desw",
-  "name": "Mittens",
-  "occupation": "kitten",
-  "age": 3,
-  "hobbies": [
-    "playing with balls of yarn",
-    "chasing laser pointers",
-    "lookin' hella cute"
-  ]
+// Database
+//var db_offline = new PouchDB('/db/clientes');
+var db_online = new PouchDB(process.env.DB_URI);
+console.log('Conectado a ' + process.env.DB_URI);
+// modulo de cliente
+module.exports.nuevo = function(req, res) {
+  var doc = {
+    "_id": "desw",
+    "name": "Mittens",
+    "occupation": "kitten",
+    "age": 3,
+    "hobbies": [
+      "playing with balls of yarn",
+      "chasing laser pointers",
+      "lookin' hella cute"
+    ]
+  };
+  db_online.put(doc);
+  db_online.info().then(function (info) {
+    console.log(info);
+  })
+  db_online.get('algomas').then(function (doc) {
+    console.log(doc);
+  });
 };
-db_offline.put(doc);
-db_offline.info().then(function (info) {
-  console.log(info);
-})
-db_offline.get('algomas').then(function (doc) {
-  console.log(doc);
-});
+
 
 // ejemplos de CRUD
 // agregar registro

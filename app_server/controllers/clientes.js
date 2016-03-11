@@ -1,3 +1,5 @@
+var PouchDB = require('pouchdb');
+
 module.exports.lista = function (req, res) {
 	res.render('lista_clientes', { 
 		clientes:[
@@ -35,6 +37,23 @@ module.exports.lista = function (req, res) {
 };
 module.exports.nuevo = function (req, res) {
 	res.render('nuevocliente', { title:'Lista de Clientes' });
+};
+module.exports.nuevo_c = function (req, res) {
+	// Declarar la base de datos
+	var db_online = new PouchDB(process.env.DB_URI);
+  	console.log('Conectado a ' + process.env.DB_URI);
+	// Llenar variable doc
+	var doc = {
+	    "_id": new Date().toISOString(),
+	    "name": "Enemedios"
+  	};
+  	db_online.put(doc)
+	console.log(doc);
+	
+	res.render('nuevocliente', { 
+		title:'Lista de Clientes',
+		doc: doc
+	});
 };
 module.exports.cliente = function (req, res) {
 	res.render('lista_clientes', { title:'Lista de Clientes' });

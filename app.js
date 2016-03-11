@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var users = require('./app_server/routes/users');
 var routes = require('./app_server/routes/index');
-//var routes_api = require('./app_api/routes/index');
-require('./app_server/models/db');
+//var db = require('./app_server/models/db');
 
 
 var app = express();
