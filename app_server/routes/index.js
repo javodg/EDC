@@ -13,8 +13,17 @@ router.get('/', ctrl.index);
 router.get('/clientes/lista', ctrlclientes.lista);
 router.get('/clientes/nuevo', ctrlclientes.nuevo);
 router.get('/clientes/nuevo_c', ctrlclientes.nuevo_c);
-router.get('/clientes/cliente', ctrlclientes.cliente);
-
+// Rutas para cliente (nuevo, modificar, ver, etc)
+router.route('/cliente/:id')
+	.get(ctrlclientes.detalle)
+	.post(ctrlclientes.nuevo);
+router.get('/example/b', function (req, res, next) {
+  console.log('the response will be sent by the next function ...');
+  next();
+}, 
+function (req, res) {
+  res.send('Hello from B!');
+});
 /* Rutas para la base de datos */
 
 

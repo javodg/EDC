@@ -55,18 +55,15 @@ module.exports.nuevo_c = function (req, res) {
 		doc: doc
 	});
 };
-module.exports.cliente = function (req, res) {
+module.exports.clientes = function (req, res) {
 	res.render('lista_clientes', { title:'Lista de Clientes' });
 };
-/*module.exports.clientes = function (req, res) {
-	res.render('lista_clientes', { title:'Lista de Clientes' });
-};*/
 // solo ejemplo de detalle de cliente
-module.exports.cliente = function (req, res) {
+module.exports.detalle = function (req, res,next) {
 	res.render('detalle_cliente', { 
 		title:'Detalle de Enemedios',
 		cliente: {
-			nombre: 'Enemedios',
+			nombre: req.params.id,
 			dir: 'Violetas Mz 170 Lt 36 b. Ojo de Agua, Tecamac',
 			tel: '59384426',
 			contactos:[
