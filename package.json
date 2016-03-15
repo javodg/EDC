@@ -1,34 +1,19 @@
 {
-  "name": "EDC-admin",
-  "version": "0.0.3",
-  "description": "Sistema administrativo de EDC",
-  "private": true,
+  "name": "enemedios",
+  "version": "0.1.1",
+  "description": "Administracion de Ene Medios",
+  "main": "app.js",
   "scripts": {
-    "test": "nodemon ./bin/www",
-    "start": "node ./bin/www"
-  },
-  "engines": {
-    "node": "~4.3.1",
-    "npm": "~3.7.3"
+    "test": "nodemon"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/javodg/EDC.git"
   },
-  "author": "Diaz Gaitan Javier",
-  "license": "MIT",
-  "homepage": "pendiente",
-  "devDependencies": {},
-  "dependencies": {
-    "angular-ui-grid": "^3.1.1",
-    "body-parser": "~1.13.2",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
-    "express": "~4.13.1",
-    "jade": "~1.11.0",
-    "mongoose": "^4.4.6",
-    "morgan": "~1.6.1",
-    "pouchdb": "^5.3.0",
-    "serve-favicon": "~2.3.0"
-  }
+  "author": "Javier Diaz Gaitan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javodg/EDC/issues"
+  },
+  "homepage": "https://github.com/javodg/EDC#readme"
 }
